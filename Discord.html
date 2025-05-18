@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord</title>
+    <meta property="og:type" content="website">
+    <link href="img/favicon.ico" rel="icon">
+    <meta name="twitter:creator" content="@discord">
+    <meta name="twitter:site" content="@discord">
+    <meta name="twitter:site" content="@discord">
+    <meta property="og:image" content="img/og_img_discord_home.png">
+    <meta property="og:description" content="Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.">
+    <meta property="og:title" content="Discord - Group Chat That’s All Fun &amp; Games">
+    <meta property="og:site_name" content="Discord">
+    <style>
+        body {
+            background-image: url("img/background.svg");
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .logo {
+            position: absolute;
+            top: 50px;
+            left: 50px
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .authWrapper {
+            width: 100%;
+            height: 400px;
+            max-width: 500px;
+            border-radius: 8px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(50, 51, 57);
+        }
+
+        .auth {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            padding: 50px;
+        }
+
+        .auth label {
+            color: rgb(223, 224, 226);
+            font-size: 12px;
+            margin-bottom: 5px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .formTitle {
+            color: white;
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .formSubtitle {
+            color: rgb(223, 224, 226);
+            text-align: center;
+            font-weight: 400;
+            margin-top: 8px;
+        }
+
+        input {
+            width: 100%;
+            height: 15px;
+            border-radius: 8px;
+            border-color: rgb(62, 63, 68);
+            border-style: solid;
+            border-width: 1px;
+            margin-bottom: 20px;
+            background-color: rgb(40, 41, 46);
+            padding: 12px 0;
+            text-indent: 10px;
+            color: white;
+            transition: border-color 0.2s ease-in-out;
+            font-size: large;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: rgb(114, 137, 218);
+            background-color: rgb(40, 41, 46);
+        }
+
+        input[id="password"] {
+            margin-bottom: 0;
+        }
+
+        .forgotPassword {
+            color: rgb(141, 161, 252);
+            font-size: 14px;
+            font-weight: 400;
+            text-align: left;
+            margin-bottom: 12px;
+            text-decoration: none;
+        }
+
+        .loginButton {
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            background-color: #5865F2;
+            color: white;
+            font-size: 16px;
+            font-weight: 300;
+            padding: 16p 2px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-top: 5px;
+        }
+
+        .loginButton:hover {
+            background-color: rgb(70, 84, 192);
+        }
+
+        .register {
+            color: rgb(173, 174, 180);
+            font-size: 14px;
+            font-weight: 400;
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .register a {
+            color: rgb(141, 161, 252);
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="img/logo.svg" alt="Discord Logo">
+        <div class="authWrapper">
+            <form action="" class="auth">
+                <h2 class="formTitle">歡迎回來 !</h2>
+                <h4 class="formSubtitle">我們很高興又見到您了 !</h4>
+                <label for="email">電子郵件或電話號碼 <span style="color: #e57371;">*</span></label>
+                <input type="text" id="email" name="email" required>
+                <label for="password">密碼 <span style="color: #e57371;">*</span></label>
+                <input type="password" id="password" name="password" required>
+                <a class="forgotPassword">忘記您的密碼？</a>
+                <button type="submit" class="loginButton">登入</button>
+                <p class="register">需要一個帳號？ <a href="register.html">註冊</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
