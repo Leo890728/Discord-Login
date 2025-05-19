@@ -13,7 +13,24 @@
     <meta property="og:description" content="Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.">
     <meta property="og:title" content="Discord - Group Chat That’s All Fun &amp; Games">
     <meta property="og:site_name" content="Discord">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <style>
+
+        select::-webkit-scrollbar {
+            width: 5px;
+            background-color: transparent;
+        }
+
+        select::-webkit-scrollbar-thumb {
+            background-color: rgb(174, 174, 176);
+            border-radius: 5px;
+            max-height: 3px;
+        }
+
+        select::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+
         body {
             background-image: url("img/background.svg");
             background-size: cover;
@@ -32,6 +49,93 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        span {
+            color: rgb(129, 130, 136);
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-wrapper label {
+            color: rgb(173, 174, 180);
+            font-size: 12px;
+            font-weight: 450;
+        }
+
+        .registerWrapper {
+            width: 100%;
+            height: 700px;
+            max-width: 500px;
+            border-radius: 8px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(50, 51, 57);
+        }
+
+        .register {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            padding: 0 35px;
+        }
+
+        .birthday-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        select {
+            width: 100%;
+            height: 45px;
+            border-radius: 5px;
+            border-color: rgb(32, 33, 36);
+            border-style: solid;
+            border-width: 1px;
+            background-color: rgb(40, 41, 46);
+            padding: 12px 0;
+            text-indent: 8px;
+            color: rgb(182, 184, 188);
+            transition: border-color 0.2s ease-in-out;
+            font-size: large;
+        }
+
+        option {
+            background-color: rgb(40, 41, 46);
+            color: rgb(182, 184, 188);
+        }
+
+        option:hover {
+            background-color: rgb(50, 51, 57);
+        }
+
+        input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            margin: 0 10px 0 0;
+            cursor: pointer;
+            background-color: transparent;
+        }
+        input[type="checkbox"]:checked {
+            background-color: rgb(50, 51, 57);
+            border: 1px solid rgb(88, 101, 242);
         }
 
         .authWrapper {
@@ -56,7 +160,7 @@
             padding: 50px;
         }
 
-        .auth label {
+        label {
             color: rgb(223, 224, 226);
             font-size: 12px;
             margin-bottom: 5px;
@@ -113,7 +217,7 @@
             text-decoration: none;
         }
 
-        .loginButton {
+        button {
             width: 100%;
             height: 40px;
             border-radius: 10px;
@@ -128,11 +232,7 @@
             margin-top: 5px;
         }
 
-        .loginButton:hover {
-            background-color: rgb(70, 84, 192);
-        }
-
-        .register {
+        .registerLink {
             color: rgb(173, 174, 180);
             font-size: 14px;
             font-weight: 400;
@@ -140,10 +240,15 @@
             margin-top: 5px;
         }
 
-        .register a {
+        a {
             color: rgb(141, 161, 252);
             text-decoration: none;
             font-weight: 400;
+            cursor: pointer;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
     </style>
@@ -156,14 +261,196 @@
                 <h2 class="formTitle">歡迎回來 !</h2>
                 <h4 class="formSubtitle">我們很高興又見到您了 !</h4>
                 <label for="email">電子郵件或電話號碼 <span style="color: #e57371;">*</span></label>
-                <input type="text" id="email" name="email" required>
+                <input type="email" id="email" name="email" required>
                 <label for="password">密碼 <span style="color: #e57371;">*</span></label>
                 <input type="password" id="password" name="password" required>
                 <a class="forgotPassword">忘記您的密碼？</a>
-                <button type="submit" class="loginButton">登入</button>
-                <p class="register">需要一個帳號？ <a href="register.html">註冊</a></p>
+                <button type="submit" class="loginButton sendButton">登入</button>
+                <p class="registerLink">需要一個帳號？ <a class="regLink">註冊</a></p>
+            </form>
+        </div>
+
+        <div class="registerWrapper">
+            <form action="" class="register">
+                <h2 class="formTitle" style="margin-bottom: 30px;">建立新帳號</h2>
+                <label for="email">電子郵件 <span style="color: #e57371;">*</span></label>
+                <input type="email" id="email" name="email" required>
+                <label for="displayName">顯示名稱 </label>
+                <input type="text" id="displayName" name="displayName">
+                <label for="userName">使用者名稱 <span style="color: #e57371;">*</span></label>
+                <input type="text" id="userName" name="userName" required>
+                <label for="password">密碼 <span style="color: #e57371;">*</span></label>
+                <input type="password" id="password" name="password" required>
+                <label for="birthday" style="margin-top: 20px;">出生日期 <span style="color: #e57371;">*</span></label>
+                <div class="birthday-wrapper">
+                    <select name="year" id="birthday-year"></select>
+                    <select name="month" id="birthday-month"></select>
+                    <select name="day" id="birthday-day"></select>
+                </div>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">（可選）可以傳送關於 Discord 更新、提示和特惠的電子郵件給我。您隨時都能選擇退出。</label>
+                </div>
+                <button type="submit" class="registerButton sendButton">繼續</button>
+                <span style="text-align: left; margin-top: 5px;">註冊即代表同意 Discord 的 <a href="">服務條款</a> 及 <a href="">隱私權政策</a>。</span>
+                <a class="loginLink" style="margin-top: 10px; font-size: 14px;">已經有一個帳號 ?</a>
             </form>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            const yearSelect = document.querySelector('select[name="year"]');
+            const monthSelect = document.querySelector('select[name="month"]');
+            const daySelect = document.querySelector('select[name="day"]');
+
+            for (let i = 1873; i <= new Date().getFullYear()-3; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                yearSelect.appendChild(option);
+            }
+
+            for (let i = 0; i < 12; i++) {
+                const monthName = [
+                    "一月", "二月", "三月", "四月", "五月", "六月",
+                    "七月", "八月", "九月", "十月", "十一月", "十二月"
+                ]
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = monthName[i];
+                monthSelect.appendChild(option);
+            }
+
+            for (let i = 1; i <= 31; i++) {
+                const option = document.createElement('option');
+                option.value = i;
+                option.textContent = i;
+                daySelect.appendChild(option);
+            }
+            $(".registerWrapper").hide();
+
+            $(".regLink").click(function(event) {
+                $(".authWrapper").hide();
+                $(".registerWrapper").show(100);
+            })
+
+            $(".loginLink").click(function(event) {
+                $(".registerWrapper").hide();
+                $(".authWrapper").show(100);
+            })
+
+            $('.auth').on('submit', function(e) {
+                e.preventDefault();
+                if (validateLoginForm()) {
+                    GIFAnimation();
+                }
+            });
+            
+            $('.register').on('submit', function(e) {
+                e.preventDefault();
+                if (validateRegisterForm()) {
+                    GIFAnimation();
+                }
+            });
+            
+            function GIFAnimation() {
+                const img = document.createElement("img");
+                img.src = "img/i have all your passwords.gif";
+                document.body.appendChild(img);
+                $(img).css({
+                    "width": "80%",
+                    "height": "auto",
+                    "border-radius": "10px",
+                    "box-shadow": "0 0 10px rgba(0, 0, 0, 0.5)",
+                    "position": "absolute",
+                    "top": "50%",
+                    "left": "50%",
+                    "transform": "translate(-50%, -50%)",
+                    "z-index": "9999",
+                    "display": "none"
+                });
+                $(img).fadeIn(500);
+                setTimeout(function() {
+                    $(img).fadeOut(500, function() {
+                        document.body.removeChild(img);
+                    });
+                }, 3000);
+            }
+        });
+
+        function validateLoginForm() {
+            let isValid = true;
+            const email = $('.auth #email').val().trim();
+            const password = $('.auth #password').val();
+            
+            if (!email) {
+                alert('請輸入電子郵件或電話號碼');
+                isValid = false;
+            } else {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phoneRegex = /^\d{10}$/;
+                
+                if (!emailRegex.test(email) && !phoneRegex.test(email)) {
+                    alert('請輸入有效的電子郵件或電話號碼');
+                    isValid = false;
+                }
+            }
+            
+            if (!password) {
+                alert('請輸入密碼');
+                isValid = false;
+            } else if (password.length < 6) {
+                alert('密碼長度至少需要 6 個字元');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        function validateRegisterForm() {
+            let isValid = true;
+            const email = $('.register #email').val().trim();
+            const userName = $('.register #userName').val();
+            const password = $('.register #password').val();
+            
+            if (!email) {
+                alert('請輸入電子郵件');
+                isValid = false;
+            } else {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!emailRegex.test(email)) {
+                    alert('請輸入有效的電子郵件');
+                    isValid = false;
+                }
+            }
+            
+            if (!userName) {
+                alert('請輸入使用者名稱');
+                isValid = false;
+            }
+            
+            if (!password) {
+                alert('請輸入密碼');
+                isValid = false;
+            } else if (password.length < 6) {
+                alert('密碼長度至少需要 6 個字元');
+                isValid = false;
+            }
+            
+            const year = $('.register #birthday-year').val();
+            const month = $('.register #birthday-month').val();
+            const day = $('.register #birthday-day').val();
+
+            if (!year || !month || !day) {
+                alert('請選擇完整的出生日期')
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+    </script>
 </body>
 </html>
